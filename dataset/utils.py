@@ -62,6 +62,11 @@ class BaseDataset(Dataset):
 
 ######################################################
 
+def seed_worker(worker_id):
+    worker_seed = torch.initial_seed() % 2**32
+    np.random.seed(worker_seed)
+    random.seed(worker_seed)
+
 class SeededDataLoader(DataLoader):
     def __init__(self, dataset: Dataset, batch_size=1, shuffle=None, 
                  sampler=None, 
@@ -73,11 +78,6 @@ class SeededDataLoader(DataLoader):
                  pin_memory_device=""):
         
         if not CONFIG.use_nondeterministic:
-            def seed_worker(worker_id):
-                worker_seed = torch.initial_seed() % 2**32
-                np.random.seed(worker_seed)
-                random.seed(worker_seed)
-
             generator = torch.Generator()
             generator.manual_seed(CONFIG.seed)
 
@@ -87,4 +87,5 @@ class SeededDataLoader(DataLoader):
                          pin_memory, drop_last, timeout, worker_init_fn, multiprocessing_context, generator, 
                          prefetch_factor=prefetch_factor, persistent_workers=persistent_workers, 
                          pin_memory_device=pin_memory_device)
+
 
