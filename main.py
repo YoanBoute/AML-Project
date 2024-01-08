@@ -37,6 +37,40 @@ def evaluate(model, data):
     logging.info(f'Accuracy: {100 * accuracy:.2f} - Loss: {loss}')
 
 
+'''Generate a random activation map of given size, with as much ones (or positive elements) as indicated in the arg ratio_1'''
+def random_activation_map_generator(size : list[int], ratio_1 : float, binarized = True) :
+    number_values = size[0] * size[1]
+    # The total number of ones to put in the map is rounded to the upper int to make sure we never have a map full of 0, which would break the network
+    number_ones = int(np.ceil(number_values * ratio_1))
+    map = torch.zeros(size)
+
+    if binarized :
+        for _ in range(number_ones) :
+            # We want to be sure to have the given ratio of 1, so we have to sample an element from the map until we find a 0 to update it
+            while True :
+                x = np.random.randint(0, size[0])
+                y = np.random.randint(0, size[1])
+
+                if map[x,y] == 0 :
+                    map[x,y] = 1
+                    break
+    
+    else :
+        for _ in range(number_ones) :
+            while True :
+                x = np.random.randint(0, size[0])
+                y = np.random.randint(0, size[1])
+
+                if map[x,y] == 0 :
+                    map[x,y] = random.random()
+                    break
+        
+        # Every value that is not yet positive becomes a random negative number
+        map[map == 0] = torch.tensor((- np.random.random(size=np.count_nonzero(map == 0))).tolist())
+
+    return map
+
+
 def train(model, data):
 
     # Create optimizers & schedulers
@@ -68,7 +102,9 @@ def train(model, data):
                     loss = F.cross_entropy(model(x), y)
 
                 ######################################################
-                #elif... TODO: Add here train logic for the other experiments
+                elif CONFIG.experiment in ['random'] :
+                    pass 
+                    # TODO: Add here train logic for the random experiment
 
                 ######################################################
 
