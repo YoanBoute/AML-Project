@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from torchvision.models.feature_extraction import create_feature_extractor
 from torchmetrics import Accuracy
 from tqdm import tqdm
 
@@ -12,7 +13,7 @@ import numpy as np
 from parse_args import parse_arguments
 
 from dataset import PACS
-from models.resnet import BaseResNet18
+from models.resnet import BaseResNet18, ASHResNet18, asm_hook_generator
 
 from globals import CONFIG
 
@@ -37,7 +38,7 @@ def evaluate(model, data):
     logging.info(f'Accuracy: {100 * accuracy:.2f} - Loss: {loss}')
 
 
-'''Generate a random activation map of given size, with as much ones (or positive elements) as indicated in the arg ratio_1'''
+'''Generate a random activation map of given size, with as much ones (or positive elements) as indicated in the arg ratio_1 --> For experiment 2'''
 def random_activation_map_generator(size : list[int], ratio_1 : float, binarized = True) :
     number_values = size[0] * size[1]
     # The total number of ones to put in the map is rounded to the upper int to make sure we never have a map full of 0, which would break the network
@@ -96,17 +97,34 @@ def train(model, data):
             # Compute loss
             with torch.autocast(device_type=CONFIG.device, dtype=torch.float16, enabled=True):
 
-                if CONFIG.experiment in ['baseline']:
+                if CONFIG.experiment in ['baseline', 'random']:
                     x, y = batch
                     x, y = x.to(CONFIG.device), y.to(CONFIG.device)
                     loss = F.cross_entropy(model(x), y)
 
-                ######################################################
-                elif CONFIG.experiment in ['random'] :
-                    pass 
-                    # TODO: Add here train logic for the random experiment
+                elif CONFIG.experiment in ['DA'] :
+                    src_x, src_y, targ_x = batch 
+                    src_x, src_y, targ_x = src_x.to(CONFIG.device), src_y.to(CONFIG.device), targ_x.to(CONFIG.device)
 
-                ######################################################
+                    layers = CONFIG.experiment_args['layers_asm']
+                    if type(layers) != list :
+                        layers = [layers]
+                    
+                    # Create a feature extractor to get the output of the specified layers
+                    feature_extractor = create_feature_extractor(model.resnet, return_nodes=layers)
+                    # Pass the target sample through the feature extractor to get the activation maps
+                    layer_outputs_target = feature_extractor(targ_x)
+                    for layer in layers :
+                        activation_map = layer_outputs_target[layer]
+                        # Put the hook corresponding to each activation map in the model
+                        model.put_asm_after_layer(layer, asm_hook_generator(activation_map))
+                    
+                    loss = F.cross_entropy(model(src_x), src_y)
+
+                    # Remove the previous hooks to avoid overlapping hooks
+                    for layer in layers :
+                        model.remove_asm_after_layer(layer)
+
 
             # Optimization step
             scaler.scale(loss / CONFIG.grad_accum_steps).backward()
@@ -142,8 +160,8 @@ def main():
         model = BaseResNet18()
 
     ######################################################
-    #elif... TODO: Add here model loading for the other experiments (eg. DA and optionally DG)
-
+    elif CONFIG.experiment in ['random', 'DA'] :
+        model = ASHResNet18()
     ######################################################
     
     model.to(CONFIG.device)

@@ -46,10 +46,16 @@ class ASHResNet18(nn.Module):
         self.resnet.fc = nn.Linear(self.resnet.fc.in_features, 7)
         self.hooks = dict()
    
-    def put_asm_after_layer(self, asm_hook) :
-        layer = self.resnet.layer1
-        hook = layer.register_forward_hook(asm_hook)
-        print(hook)
+    def put_asm_after_layer(self, layer, asm_hook) :
+        model_layer = None
+        for name, module in self.resnet.named_children() :
+            if name == layer :
+                model_layer = module
+                break
+        if model_layer is None :
+            raise BaseException(f"Error : The layer {layer} couldn't be found in the model")
+        
+        hook = model_layer.register_forward_hook(asm_hook)
         self.hooks[layer] = hook
 
     def remove_asm_after_layer(self, layer) :
@@ -57,7 +63,7 @@ class ASHResNet18(nn.Module):
             self.hooks[layer].remove()
             self.hooks[layer] = None
         else :
-            raise "Error : no hook attached to this layer"
+            raise BaseException("Error : no hook attached to this layer")
         
     def forward(self, x):
        return self.resnet(x)
