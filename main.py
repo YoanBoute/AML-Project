@@ -39,37 +39,25 @@ def evaluate(model, data):
 
 
 '''Generate a random activation map of given size, with as much ones (or positive elements) as indicated in the arg ratio_1 --> For experiment 2'''
-def random_activation_map_generator(size : list[int], ratio_1 : float, binarized = True) :
-    number_values = size[0] * size[1]
+def random_activation_map_generator(size, ratio_1 : float, binarized = True) :
+    number_values = np.prod(list(size))
     # The total number of ones to put in the map is rounded to the upper int to make sure we never have a map full of 0, which would break the network
     number_ones = int(np.ceil(number_values * ratio_1))
-    map = torch.zeros(size)
 
     if binarized :
-        for _ in range(number_ones) :
-            # We want to be sure to have the given ratio of 1, so we have to sample an element from the map until we find a 0 to update it
-            while True :
-                x = np.random.randint(0, size[0])
-                y = np.random.randint(0, size[1])
-
-                if map[x,y] == 0 :
-                    map[x,y] = 1
-                    break
+        # Generate a random binary map with the correct number of ones and the correct size
+        ones = torch.ones(number_ones)
+        zeros = torch.zeros(number_values - number_ones)
+        map = torch.cat([ones, zeros])[torch.randperm(number_values)].reshape(size)
     
     else :
-        for _ in range(number_ones) :
-            while True :
-                x = np.random.randint(0, size[0])
-                y = np.random.randint(0, size[1])
-
-                if map[x,y] == 0 :
-                    map[x,y] = random.random()
-                    break
+        # TODO if necessary
         
         # Every value that is not yet positive becomes a random negative number
-        map[map == 0] = torch.tensor((- np.random.random(size=np.count_nonzero(map == 0))).tolist())
-
-    return map
+        # map[map == 0] = torch.tensor((- np.random.random(size=np.count_nonzero(map == 0))).tolist())
+        pass 
+    
+    return map.to(CONFIG.device)
 
 
 def train(model, data):
@@ -97,15 +85,48 @@ def train(model, data):
             # Compute loss
             with torch.autocast(device_type=CONFIG.device, dtype=torch.float16, enabled=True):
 
-                if CONFIG.experiment in ['baseline', 'random']:
+                if CONFIG.experiment in ['baseline']:
                     x, y = batch
                     x, y = x.to(CONFIG.device), y.to(CONFIG.device)
                     loss = F.cross_entropy(model(x), y)
 
+                elif CONFIG.experiment in ['random'] :
+                    x, y = batch
+                    x, y = x.to(CONFIG.device), y.to(CONFIG.device)
+
+                    if CONFIG.experiment_args.get('layers_asm') is None :
+                        raise BaseException("Error : No layer was given to put a hook on")
+                    layers = CONFIG.experiment_args['layers_asm']
+                    if type(layers) != list :
+                        layers = [layers]
+
+                    if CONFIG.experiment_args.get('ratio_1') is None :
+                        raise BaseException("Error : The ratio of 1 in random activation maps has to be given")
+                    ratio_1 = CONFIG.experiment_args['ratio_1']
+                    
+                    # Create a feature extractor to get the output of the specified layers
+                    feature_extractor = create_feature_extractor(model.resnet, return_nodes=layers)
+                    # Pass the source sample through the feature extractor to get the activation maps sizes
+                    layer_outputs = feature_extractor(x)
+                    for layer in layers :
+                        activation_map_size = layer_outputs[layer].shape
+                        # Generate randomly the activation map
+                        M = random_activation_map_generator(activation_map_size, ratio_1, binarized=True)
+                        # Put the hook corresponding to each activation map in the model
+                        model.put_asm_after_layer(layer, asm_hook_generator(M))
+                    
+                    loss = F.cross_entropy(model(x), y)
+
+                    # Remove the previous hooks to avoid overlapping hooks
+                    for layer in layers :
+                        model.remove_asm_after_layer(layer)
+
                 elif CONFIG.experiment in ['DA'] :
                     src_x, src_y, targ_x = batch 
                     src_x, src_y, targ_x = src_x.to(CONFIG.device), src_y.to(CONFIG.device), targ_x.to(CONFIG.device)
-
+                    
+                    if CONFIG.experiment_args.get('layers_asm') is None :
+                        raise BaseException("Error : No layer was given to put a hook on")
                     layers = CONFIG.experiment_args['layers_asm']
                     if type(layers) != list :
                         layers = [layers]

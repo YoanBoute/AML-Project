@@ -1,9 +1,9 @@
 target_domain=${1}
 
 python main.py \
---experiment=baseline \
+--experiment=random \
 --experiment_name=DA/${target_domain}/ \
---experiment_args="{'layers_asm' : 'conv1'}" \
+--experiment_args="{'layers_asm' : 'conv1', 'ratio_1' : 0.5}" \
 --dataset_args="{'root': 'data/PACS', 'source_domain': 'art_painting', 'target_domain': '${target_domain}'}" \
 --batch_size=128 \
 --num_workers=1 \
