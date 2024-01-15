@@ -17,6 +17,8 @@ from models.resnet import BaseResNet18, ASHResNet18, asm_hook_generator
 
 from globals import CONFIG
 
+from time import time
+
 @torch.no_grad()
 def evaluate(model, data):
     model.eval()
@@ -46,9 +48,10 @@ def random_activation_map_generator(size, ratio_1 : float, binarized = True) :
 
     if binarized :
         # Generate a random binary map with the correct number of ones and the correct size
-        ones = torch.ones(number_ones)
-        zeros = torch.zeros(number_values - number_ones)
-        map = torch.cat([ones, zeros])[torch.randperm(number_values)].reshape(size)
+        permuted_indices = torch.randperm(number_values)[:number_ones]
+        map = torch.zeros(number_values, dtype=torch.float32)
+        map[permuted_indices] = 1
+        map = map.reshape(size)
     
     else :
         # TODO if necessary
@@ -85,41 +88,10 @@ def train(model, data):
             # Compute loss
             with torch.autocast(device_type=CONFIG.device, dtype=torch.float16, enabled=True):
 
-                if CONFIG.experiment in ['baseline']:
+                if CONFIG.experiment in ['baseline', 'random']:
                     x, y = batch
                     x, y = x.to(CONFIG.device), y.to(CONFIG.device)
                     loss = F.cross_entropy(model(x), y)
-
-                elif CONFIG.experiment in ['random'] :
-                    x, y = batch
-                    x, y = x.to(CONFIG.device), y.to(CONFIG.device)
-
-                    if CONFIG.experiment_args.get('layers_asm') is None :
-                        raise BaseException("Error : No layer was given to put a hook on")
-                    layers = CONFIG.experiment_args['layers_asm']
-                    if type(layers) != list :
-                        layers = [layers]
-
-                    if CONFIG.experiment_args.get('ratio_1') is None :
-                        raise BaseException("Error : The ratio of 1 in random activation maps has to be given")
-                    ratio_1 = CONFIG.experiment_args['ratio_1']
-                    
-                    # Create a feature extractor to get the output of the specified layers
-                    feature_extractor = create_feature_extractor(model.resnet, return_nodes=layers)
-                    # Pass the source sample through the feature extractor to get the activation maps sizes
-                    layer_outputs = feature_extractor(x)
-                    for layer in layers :
-                        activation_map_size = layer_outputs[layer].shape
-                        # Generate randomly the activation map
-                        M = random_activation_map_generator(activation_map_size, ratio_1, binarized=True)
-                        # Put the hook corresponding to each activation map in the model
-                        model.put_asm_after_layer(layer, asm_hook_generator(M))
-                    
-                    loss = F.cross_entropy(model(x), y)
-
-                    # Remove the previous hooks to avoid overlapping hooks
-                    for layer in layers :
-                        model.remove_asm_after_layer(layer)
 
                 elif CONFIG.experiment in ['DA'] :
                     src_x, src_y, targ_x = batch 
@@ -130,6 +102,13 @@ def train(model, data):
                     layers = CONFIG.experiment_args['layers_asm']
                     if type(layers) != list :
                         layers = [layers]
+                    
+                    '''Specific case : If we indicate allConv in the layers, then an ASM hook has to be put after each convolution of the network'''
+                    if layers[0] == 'allConv' :
+                        layers.remove('allConv')
+                        for name, mod in model.resnet.named_modules() :
+                            if isinstance(mod, torch.nn.modules.conv.Conv2d) :
+                                layers.append(name)
                     
                     # Create a feature extractor to get the output of the specified layers
                     feature_extractor = create_feature_extractor(model.resnet, return_nodes=layers)
@@ -180,11 +159,36 @@ def main():
     if CONFIG.experiment in ['baseline']:
         model = BaseResNet18()
 
-    ######################################################
-    elif CONFIG.experiment in ['random', 'DA'] :
+    elif CONFIG.experiment in ['random'] :
         model = ASHResNet18()
-    ######################################################
+
+        if CONFIG.experiment_args.get('ratio_1') is None :
+            raise BaseException("Error : The ratio of 1 in random activation maps has to be given")
+        
+        ratio_1 = CONFIG.experiment_args['ratio_1']
+        
+        # Create a feature extractor to get the output of all layers
+        layers = []
+        for layer_name, layer in model.resnet.named_modules() :
+            if layer_name != '' :
+                layers.append(layer_name)
+        feature_extractor = create_feature_extractor(model.resnet, return_nodes=layers)
+        # Pass a random sample through the feature extractor to get the activation maps sizes
+        d = data['train'].dataset[0][0]
+        layer_outputs = feature_extractor(torch.tensor([d.tolist()]))
+        
+        for layer in layers :
+            if layer.endswith('.1') :
+                layer = layer.split('.1')[0]
+            activation_map_size = layer_outputs[layer].shape
+            # Generate randomly the activation map
+            M = random_activation_map_generator(activation_map_size, ratio_1, binarized=True)
+            # Put the hook corresponding to each activation map in the model
+            model.put_asm_after_layer(layer, asm_hook_generator(M))
     
+    elif CONFIG.experiment in ['DA'] : 
+        model = ASHResNet18()
+
     model.to(CONFIG.device)
 
     if not CONFIG.test_only:
@@ -221,5 +225,6 @@ if __name__ == '__main__':
     np.random.seed(CONFIG.seed)
     torch.backends.cudnn.benchmark = True
     torch.use_deterministic_algorithms(mode=True, warn_only=True)
+    torch.autograd.set_detect_anomaly(True)
 
     main()

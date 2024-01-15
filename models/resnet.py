@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 from torchvision.models import resnet18, ResNet18_Weights
+from copy import copy
 
 class BaseResNet18(nn.Module):
     def __init__(self):
@@ -11,15 +12,7 @@ class BaseResNet18(nn.Module):
     def forward(self, x):
         return self.resnet(x)
 
-######################################################
-# TODO: either define the Activation Shaping Module as a nn.Module
-#class ActivationShapingModule(nn.Module):
-#...
-#
-# OR as a function that shall be hooked via 'register_forward_hook'
-#def activation_shaping_hook(module, input, output):
-#...
-#
+
 def asm_hook_generator(M) :
     def activation_shaping_hook(module, input, output) :        
         # Binarization of M (if it is not already binarized)
@@ -29,16 +22,16 @@ def asm_hook_generator(M) :
             M[M > 0] = 1
 
         # Binarization of last layer output
-        output[output <= 0] = 0
-        output[output > 0] = 1
+        bin_output = torch.clone(output)
+        bin_output[bin_output <= 0] = 0
+        bin_output[bin_output > 0] = 1
 
-        bin_prod = M * output
+        bin_prod = M * bin_output
 
-        return bin_prod 
+        return bin_prod
     return activation_shaping_hook
 
 
-######################################################
 class ASHResNet18(nn.Module):
     def __init__(self):
         super(ASHResNet18, self).__init__()
@@ -48,7 +41,7 @@ class ASHResNet18(nn.Module):
    
     def put_asm_after_layer(self, layer, asm_hook) :
         model_layer = None
-        for name, module in self.resnet.named_children() :
+        for name, module in self.resnet.named_modules() :
             if name == layer :
                 model_layer = module
                 break
@@ -68,4 +61,3 @@ class ASHResNet18(nn.Module):
     def forward(self, x):
        return self.resnet(x)
 
-######################################################

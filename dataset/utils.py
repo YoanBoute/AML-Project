@@ -24,9 +24,7 @@ class BaseDataset(Dataset):
         y = torch.tensor(y).long()
         return x, y
 
-######################################################
-# TODO: modify 'BaseDataset' for the Domain Adaptation setting.
-# Hint: randomly sample 'target_examples' to obtain targ_x
+
 class DomainAdaptationDataset(Dataset):
    def __init__(self, source_examples, target_examples, transform):
        self.source_examples = source_examples
