@@ -8,5 +8,3 @@ python main.py \
 --num_workers=1 \
 --grad_accum_steps=1 \
 --epochs=30
-
-read -n1 -r -p "Press any key to continue..."

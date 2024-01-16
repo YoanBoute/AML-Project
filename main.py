@@ -17,7 +17,7 @@ from models.resnet import BaseResNet18, ASHResNet18, asm_hook_generator
 
 from globals import CONFIG
 
-from time import time
+from copy import deepcopy
 
 @torch.no_grad()
 def evaluate(model, data):
@@ -38,6 +38,20 @@ def evaluate(model, data):
     accuracy = acc_meter.compute()
     loss = loss[0] / loss[1]
     logging.info(f'Accuracy: {100 * accuracy:.2f} - Loss: {loss}')
+
+    # Write results in csv file for later use
+    results_file = os.path.join(CONFIG.save_dir, 'results.csv')
+    if not os.path.exists(results_file) :
+        with open(results_file, 'a') as res :
+            res.write('Epoch, Ratio of 1s (if random), Location of ASM (if needed), Accuracy, Loss\n')
+    ratio_1 = CONFIG.experiment_args['ratio_1'] if CONFIG.experiment_args.get('ratio_1') is not None else ''
+    layer_ASM = CONFIG.experiment_args['layers_asm'] if CONFIG.experiment_args.get('layers_asm') is not None else ''
+    # Estimation of the current epoch by counting the number of lines of the file 
+    with open(results_file, 'r') as readable_file :
+        content = readable_file.read()
+    current_epoch = content.count('\n')
+    with open(results_file, 'a') as res :
+        res.write(f'{current_epoch}, {ratio_1}, {layer_ASM}, {accuracy}, {loss} \n')
 
 
 '''Generate a random activation map of given size, with as much ones (or positive elements) as indicated in the arg ratio_1 --> For experiment 2'''
@@ -100,7 +114,9 @@ def train(model, data):
                     if CONFIG.experiment_args.get('layers_asm') is None :
                         raise BaseException("Error : No layer was given to put a hook on")
                     layers = CONFIG.experiment_args['layers_asm']
-                    if type(layers) != list :
+                    if layers.startswith('[') :
+                        layers = eval(layers)
+                    else :
                         layers = [layers]
                     
                     '''Specific case : If we indicate allConv in the layers, then an ASM hook has to be put after each convolution of the network'''
@@ -114,16 +130,17 @@ def train(model, data):
                     feature_extractor = create_feature_extractor(model.resnet, return_nodes=layers)
                     # Pass the target sample through the feature extractor to get the activation maps
                     layer_outputs_target = feature_extractor(targ_x)
+                    new_model = deepcopy(model)
                     for layer in layers :
                         activation_map = layer_outputs_target[layer]
                         # Put the hook corresponding to each activation map in the model
-                        model.put_asm_after_layer(layer, asm_hook_generator(activation_map))
+                        new_model.put_asm_after_layer(layer, asm_hook_generator(activation_map))
                     
                     loss = F.cross_entropy(model(src_x), src_y)
 
                     # Remove the previous hooks to avoid overlapping hooks
-                    for layer in layers :
-                        model.remove_asm_after_layer(layer)
+                    # for layer in layers :
+                    #     model.remove_asm_after_layer(layer)
 
 
             # Optimization step
