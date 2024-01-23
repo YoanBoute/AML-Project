@@ -68,11 +68,13 @@ def random_activation_map_generator(size, ratio_1 : float, binarized = True) :
         map = map.reshape(size)
 
     else :
-        # TODO if necessary
-
         # Every value that is not yet positive becomes a random negative number
-        # map[map == 0] = torch.tensor((- np.random.random(size=np.count_nonzero(map == 0))).tolist())
-        pass
+        map = torch.randn(size)
+        # Set a specified number of elements to 1 (activated)
+        activated_indices = torch.randperm(number_values)[:number_ones]
+        map = map.view(-1)
+        map[activated_indices] = 1
+        map = map.view(size)
 
     return map.to(CONFIG.device)
 
@@ -102,34 +104,12 @@ def train(model, data):
             # Compute loss
             with torch.autocast(device_type=CONFIG.device, dtype=torch.float16, enabled=True):
 
-                if CONFIG.experiment in ['baseline', 'random']:
+                if CONFIG.experiment in ['baseline', 'random', 'extension1']:
                     x, y = batch
                     x, y = x.to(CONFIG.device), y.to(CONFIG.device)
                     loss = F.cross_entropy(model(x), y)
 
-                elif CONFIG.experiment in ('extension1'):
-                    # TODO: is this correct?
-                    src_x, src_y, targ_x = batch
-                    src_x, src_y, targ_x = src_x.to(CONFIG.device), src_y.to(CONFIG.device), targ_x.to(CONFIG.device)
-
-                    layers = []
-                    for name, mod in model.resnet.named_modules() :
-                        if isinstance(mod, torch.nn.modules.conv.Conv2d) :
-                            layers.append(name)
-
-                    # Create a feature extractor to get the output of the specified layers
-                    feature_extractor = create_feature_extractor(model.resnet, return_nodes=layers)
-                    # Pass the target sample through the feature extractor to get the activation maps
-                    layer_outputs_target = feature_extractor(targ_x)
-                    new_model = deepcopy(model)
-                    for layer in layers :
-                        activation_map = layer_outputs_target[layer]
-                        # Put the hook corresponding to each activation map in the model
-                        new_model.put_asm_after_layer(layer, asm_hook_generator_no_binarization(activation_map))
-
-                    loss = F.cross_entropy(model(src_x), src_y)
-
-                elif CONFIG.experiment in ['DA'] :
+                elif CONFIG.experiment in ['DA', 'extension2'] :
                     src_x, src_y, targ_x = batch
                     src_x, src_y, targ_x = src_x.to(CONFIG.device), src_y.to(CONFIG.device), targ_x.to(CONFIG.device)
 
@@ -153,54 +133,25 @@ def train(model, data):
                     # Pass the target sample through the feature extractor to get the activation maps
                     layer_outputs_target = feature_extractor(targ_x)
                     new_model = deepcopy(model)
+
+                    if CONFIG.experiment in ('extension2'):
+                        if CONFIG.experiment_args.get('K') is None:
+                            raise BaseException("Error : K hyperparameter not set")
+                        else:
+                            K = CONFIG.experiment_args['K']
                     for layer in layers :
                         activation_map = layer_outputs_target[layer]
                         # Put the hook corresponding to each activation map in the model
-                        new_model.put_asm_after_layer(layer, asm_hook_generator(activation_map))
+                        if CONFIG.experiment in ('DA'):
+                            new_model.put_asm_after_layer(layer, asm_hook_generator(activation_map))
+                        else:
+                            new_model.put_asm_after_layer(layer, asm_hook_generator_top_k(activation_map, K))
 
                     loss = F.cross_entropy(model(src_x), src_y)
 
                     # Remove the previous hooks to avoid overlapping hooks
                     # for layer in layers :
                     #     model.remove_asm_after_layer(layer)
-
-                elif CONFIG.experiment in ['extension2'] :
-                    # TODO: insert in the script a way to set K
-
-                    src_x, src_y, targ_x = batch
-                    src_x, src_y, targ_x = src_x.to(CONFIG.device), src_y.to(CONFIG.device), targ_x.to(CONFIG.device)
-
-                    if CONFIG.experiment_args.get('K') is None:
-                        raise BaseException("Error : K hyperparameter not set")
-                    K = CONFIG.experiment_args['K']
-
-                    if CONFIG.experiment_args.get('layers_asm') is None :
-                        raise BaseException("Error : No layer was given to put a hook on")
-                    layers = CONFIG.experiment_args['layers_asm']
-                    if layers.startswith('[') :
-                        layers = eval(layers)
-                    else :
-                        layers = [layers]
-
-                    '''Specific case : If we indicate allConv in the layers, then an ASM hook has to be put after each convolution of the network'''
-                    if layers[0] == 'allConv' :
-                        layers.remove('allConv')
-                        for name, mod in model.resnet.named_modules() :
-                            if isinstance(mod, torch.nn.modules.conv.Conv2d) :
-                                layers.append(name)
-
-                    # Create a feature extractor to get the output of the specified layers
-                    feature_extractor = create_feature_extractor(model.resnet, return_nodes=layers)
-                    # Pass the target sample through the feature extractor to get the activation maps
-                    layer_outputs_target = feature_extractor(targ_x)
-                    new_model = deepcopy(model)
-                    for layer in layers :
-                        activation_map = layer_outputs_target[layer]
-                        # Put the hook corresponding to each activation map in the model
-                        new_model.put_asm_after_layer(layer, asm_hook_generator_top_k(activation_map, K))
-
-                    loss = F.cross_entropy(model(src_x), src_y)
-
 
             # Optimization step
             scaler.scale(loss / CONFIG.grad_accum_steps).backward()
@@ -235,7 +186,7 @@ def main():
     if CONFIG.experiment in ['baseline']:
         model = BaseResNet18()
 
-    elif CONFIG.experiment in ['random'] :
+    elif CONFIG.experiment in ['random', 'extension1'] :
         model = ASHResNet18()
 
         if CONFIG.experiment_args.get('ratio_1') is None :
@@ -257,14 +208,16 @@ def main():
             if layer.endswith('.1') :
                 layer = layer.split('.1')[0]
             activation_map_size = layer_outputs[layer].shape
-            # Generate randomly the activation map
-            M = random_activation_map_generator(activation_map_size, ratio_1, binarized=True)
             # Put the hook corresponding to each activation map in the model
-            model.put_asm_after_layer(layer, asm_hook_generator(M))
+            if CONFIG.experiment in ('random'):
+                # Generate randomly the activation map
+                M = random_activation_map_generator(activation_map_size, ratio_1, binarized=True)
+                model.put_asm_after_layer(layer, asm_hook_generator(M))
+            else:
+                M = random_activation_map_generator(activation_map_size, ratio_1, binarized=False)
+                model.put_asm_after_layer(layer, asm_hook_generator_no_binarization(M))
 
-    # TODO: add here condition for extension 1
-
-    elif CONFIG.experiment in ['DA'] :
+    elif CONFIG.experiment in ['DA', 'extension2'] :
         model = ASHResNet18()
 
     model.to(CONFIG.device)
