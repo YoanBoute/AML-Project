@@ -39,20 +39,20 @@ def evaluate(model, data):
     loss = loss[0] / loss[1]
     logging.info(f'Accuracy: {100 * accuracy:.2f} - Loss: {loss}')
 
-    # TODO: write results of experiments extensions
     # Write results in csv file for later use
     results_file = os.path.join(CONFIG.save_dir, 'results.csv')
     if not os.path.exists(results_file) :
         with open(results_file, 'a') as res :
-            res.write('Epoch, Ratio of 1s (if random), Location of ASM (if needed), Accuracy, Loss\n')
+            res.write('Epoch, Ratio of 1s (if random), Location of ASM (if needed), K (if needed), Accuracy, Loss\n')
     ratio_1 = CONFIG.experiment_args['ratio_1'] if CONFIG.experiment_args.get('ratio_1') is not None else ''
     layer_ASM = CONFIG.experiment_args['layers_asm'] if CONFIG.experiment_args.get('layers_asm') is not None else ''
+    K = CONFIG.experiment_args['K'] if CONFIG.experiment_args.get('K') is not None else ''
     # Estimation of the current epoch by counting the number of lines of the file
     with open(results_file, 'r') as readable_file :
         content = readable_file.read()
     current_epoch = content.count('\n')
     with open(results_file, 'a') as res :
-        res.write(f'{current_epoch}, {ratio_1}, {layer_ASM}, {accuracy}, {loss} \n')
+        res.write(f'{current_epoch}, {ratio_1}, {layer_ASM}, {K}, {accuracy}, {loss} \n')
 
 
 def random_activation_map_generator(size, ratio_1 : float, binarized = True) :
@@ -103,12 +103,12 @@ def train(model, data):
             # Compute loss
             with torch.autocast(device_type=CONFIG.device, dtype=torch.float16, enabled=True):
 
-                if CONFIG.experiment in ['baseline', 'random', 'extension1']:
+                if CONFIG.experiment in ['baseline', 'random', 'random_no_binarization', 'random_top_k']:
                     x, y = batch
                     x, y = x.to(CONFIG.device), y.to(CONFIG.device)
                     loss = F.cross_entropy(model(x), y)
 
-                elif CONFIG.experiment in ['DA', 'extension2'] :
+                elif CONFIG.experiment in ['DA', 'DA_no_binarization', 'DA_top_k'] :
                     src_x, src_y, targ_x = batch
                     src_x, src_y, targ_x = src_x.to(CONFIG.device), src_y.to(CONFIG.device), targ_x.to(CONFIG.device)
 
@@ -133,7 +133,7 @@ def train(model, data):
                     layer_outputs_target = feature_extractor(targ_x)
                     new_model = deepcopy(model)
 
-                    if CONFIG.experiment in ('extension2'):
+                    if CONFIG.experiment in ('DA_top_k'):
                         if CONFIG.experiment_args.get('K') is None:
                             raise BaseException("Error : K hyperparameter not set")
                         else:
@@ -143,7 +143,9 @@ def train(model, data):
                         # Put the hook corresponding to each activation map in the model
                         if CONFIG.experiment in ('DA'):
                             new_model.put_asm_after_layer(layer, asm_hook_generator(activation_map))
-                        else:
+                        elif CONFIG.experiment in ('DA_no_binarization'):
+                            new_model.put_asm_after_layer(layer, asm_hook_generator_no_binarization(activation_map))
+                        elif CONFIG.experiment in ('DA_top_k'):
                             new_model.put_asm_after_layer(layer, asm_hook_generator_top_k(activation_map, K))
 
                     loss = F.cross_entropy(model(src_x), src_y)
@@ -185,13 +187,18 @@ def main():
     if CONFIG.experiment in ['baseline']:
         model = BaseResNet18()
 
-    elif CONFIG.experiment in ['random', 'extension1'] :
+    elif CONFIG.experiment in ['random', 'random_no_binarization', 'random_top_k'] :
         model = ASHResNet18()
 
         if CONFIG.experiment_args.get('ratio_1') is None :
             raise BaseException("Error : The ratio of 1 in random activation maps has to be given")
-
         ratio_1 = CONFIG.experiment_args['ratio_1']
+
+        if CONFIG.experiment in ('random_top_k'):
+            if CONFIG.experiment_args.get('K') is None:
+                raise BaseException("Error : K hyperparameter not set")
+            else:
+                K = CONFIG.experiment_args['K']
 
         # Create a feature extractor to get the output of all layers
         layers = []
@@ -212,11 +219,14 @@ def main():
                 # Generate randomly the activation map
                 M = random_activation_map_generator(activation_map_size, ratio_1, binarized=True)
                 model.put_asm_after_layer(layer, asm_hook_generator(M))
-            else:
+            elif CONFIG.experiment in ('random_no_binarization'):
                 M = random_activation_map_generator(activation_map_size, ratio_1, binarized=False)
                 model.put_asm_after_layer(layer, asm_hook_generator_no_binarization(M))
+            elif CONFIG.experiment in ('random_top_k'):
+                M = random_activation_map_generator(activation_map_size, ratio_1, binarized=True)
+                model.put_asm_after_layer(layer, asm_hook_generator_top_k(M, K))
 
-    elif CONFIG.experiment in ['DA', 'extension2'] :
+    elif CONFIG.experiment in ['DA', 'DA_no_binarization', 'DA_top_k'] :
         model = ASHResNet18()
 
     model.to(CONFIG.device)
