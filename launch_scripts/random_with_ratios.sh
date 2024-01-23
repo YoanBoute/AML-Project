@@ -1,7 +1,7 @@
 target_domain=${1}
 ratio_1=${2}
 
-python main.py \
+python3 main.py \
 --experiment=random \
 --experiment_name=random/${target_domain}/ \
 --experiment_args="{'ratio_1' : ${ratio_1}}" \

@@ -1,7 +1,7 @@
 target_domain=${1}
 layers=${2}
 
-python main.py \
+python3 main.py \
 --experiment=DA_no_binarization \
 --experiment_name=DA_no_binarization/${target_domain}/ \
 --experiment_args="{'layers_asm' : '${layers}'}" \

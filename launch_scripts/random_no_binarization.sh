@@ -1,7 +1,7 @@
 target_domain=${1}
 ratio_1=${2}
 
-python main.py \
+python3 main.py \
 --experiment=random_no_binarization \
 --experiment_name=random_no_binarization/${target_domain}/ \
 --experiment_args="{'ratio_1' : ${ratio_1}}" \

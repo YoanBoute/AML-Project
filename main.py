@@ -70,7 +70,7 @@ def random_activation_map_generator(size, ratio_1 : float, binarized = True) :
 
     else :
         # Generate a random map with only positive values
-        map = torch.rand(size)
+        map = torch.rand(size).view(-1)
         deactivated_indices = torch.randperm(number_values)[:(number_values - number_ones)]
         map[deactivated_indices] = 0
         map = map.reshape(size)
@@ -133,7 +133,7 @@ def train(model, data):
                     layer_outputs_target = feature_extractor(targ_x)
                     new_model = deepcopy(model)
 
-                    if CONFIG.experiment in ('DA_top_k'):
+                    if CONFIG.experiment == 'DA_top_k':
                         if CONFIG.experiment_args.get('K') is None:
                             raise BaseException("Error : K hyperparameter not set")
                         else:
@@ -141,11 +141,11 @@ def train(model, data):
                     for layer in layers :
                         activation_map = layer_outputs_target[layer]
                         # Put the hook corresponding to each activation map in the model
-                        if CONFIG.experiment in ('DA'):
+                        if CONFIG.experiment == 'DA':
                             new_model.put_asm_after_layer(layer, asm_hook_generator(activation_map))
-                        elif CONFIG.experiment in ('DA_no_binarization'):
+                        elif CONFIG.experiment == 'DA_no_binarization':
                             new_model.put_asm_after_layer(layer, asm_hook_generator_no_binarization(activation_map))
-                        elif CONFIG.experiment in ('DA_top_k'):
+                        elif CONFIG.experiment == 'DA_top_k':
                             new_model.put_asm_after_layer(layer, asm_hook_generator_top_k(activation_map, K))
 
                     loss = F.cross_entropy(model(src_x), src_y)
@@ -194,7 +194,7 @@ def main():
             raise BaseException("Error : The ratio of 1 in random activation maps has to be given")
         ratio_1 = CONFIG.experiment_args['ratio_1']
 
-        if CONFIG.experiment in ('random_top_k'):
+        if CONFIG.experiment == 'random_top_k':
             if CONFIG.experiment_args.get('K') is None:
                 raise BaseException("Error : K hyperparameter not set")
             else:
@@ -215,14 +215,14 @@ def main():
                 layer = layer.split('.1')[0]
             activation_map_size = layer_outputs[layer].shape
             # Put the hook corresponding to each activation map in the model
-            if CONFIG.experiment in ('random'):
+            if CONFIG.experiment == 'random':
                 # Generate randomly the activation map
                 M = random_activation_map_generator(activation_map_size, ratio_1, binarized=True)
                 model.put_asm_after_layer(layer, asm_hook_generator(M))
-            elif CONFIG.experiment in ('random_no_binarization'):
+            elif CONFIG.experiment == 'random_no_binarization':
                 M = random_activation_map_generator(activation_map_size, ratio_1, binarized=False)
                 model.put_asm_after_layer(layer, asm_hook_generator_no_binarization(M))
-            elif CONFIG.experiment in ('random_top_k'):
+            elif CONFIG.experiment == 'random_top_k':
                 M = random_activation_map_generator(activation_map_size, ratio_1, binarized=True)
                 model.put_asm_after_layer(layer, asm_hook_generator_top_k(M, K))
 
