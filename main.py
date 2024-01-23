@@ -39,6 +39,7 @@ def evaluate(model, data):
     loss = loss[0] / loss[1]
     logging.info(f'Accuracy: {100 * accuracy:.2f} - Loss: {loss}')
 
+    # TODO: write results of experiments extensions
     # Write results in csv file for later use
     results_file = os.path.join(CONFIG.save_dir, 'results.csv')
     if not os.path.exists(results_file) :
@@ -54,8 +55,8 @@ def evaluate(model, data):
         res.write(f'{current_epoch}, {ratio_1}, {layer_ASM}, {accuracy}, {loss} \n')
 
 
-'''Generate a random activation map of given size, with as much ones (or positive elements) as indicated in the arg ratio_1 --> For experiment 2'''
 def random_activation_map_generator(size, ratio_1 : float, binarized = True) :
+    """Generate a random activation map of given size, with as much ones (or positive elements) as indicated in the arg ratio_1 --> For experiment 2"""
     number_values = np.prod(list(size))
     # The total number of ones to put in the map is rounded to the upper int to make sure we never have a map full of 0, which would break the network
     number_ones = int(np.ceil(number_values * ratio_1))
@@ -68,13 +69,11 @@ def random_activation_map_generator(size, ratio_1 : float, binarized = True) :
         map = map.reshape(size)
 
     else :
-        # Every value that is not yet positive becomes a random negative number
-        map = torch.randn(size)
-        # Set a specified number of elements to 1 (activated)
-        activated_indices = torch.randperm(number_values)[:number_ones]
-        map = map.view(-1)
-        map[activated_indices] = 1
-        map = map.view(size)
+        # Generate a random map with only positive values
+        map = torch.rand(size)
+        deactivated_indices = torch.randperm(number_values)[:(number_values - number_ones)]
+        map[deactivated_indices] = 0
+        map = map.reshape(size)
 
     return map.to(CONFIG.device)
 

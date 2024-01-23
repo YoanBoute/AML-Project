@@ -50,12 +50,10 @@ def asm_hook_generator_top_k(M, K) :
 
         # compute top K elements of A
         A = torch.clone(output)
-        _, indices = torch.topk(A.view(-1), K)
+        _, indices = torch.topk(A, K)
         # Create a mask with zeros everywhere except the top k indices
-        mask = torch.zeros_like(A.view(-1))
+        mask = torch.zeros_like(A)
         mask[indices] = 1
-        # Reshape the mask to match the shape of A
-        mask = mask.view(A.shape)
 
         return M * mask * A
     return activation_shaping_hook
