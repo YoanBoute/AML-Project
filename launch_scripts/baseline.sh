@@ -1,6 +1,6 @@
 target_domain=${1}
 
-python main.py \
+python3 main.py \
 --experiment=baseline \
 --experiment_name=baseline/${target_domain}/ \
 --dataset_args="{'root': 'data/PACS', 'source_domain': 'art_painting', 'target_domain': '${target_domain}'}" \

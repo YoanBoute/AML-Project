@@ -14,7 +14,7 @@ class BaseResNet18(nn.Module):
 
 
 def asm_hook_generator(M) :
-    def activation_shaping_hook(module, input, output) :        
+    def activation_shaping_hook(module, input, output) :
         # Binarization of M (if it is not already binarized)
         bin_values = (M == 0) + (M == 1)
         if not torch.all(bin_values) :
@@ -32,13 +32,41 @@ def asm_hook_generator(M) :
     return activation_shaping_hook
 
 
+def asm_hook_generator_no_binarization(M):
+    """extension 2 - part 1 (no binarization)"""
+    def activation_shaping_hook(module, input, output) :
+        return M * output
+    return activation_shaping_hook
+
+
+def asm_hook_generator_top_k(M, K) :
+    """extension 2 - part 2 (top-k binarization)"""
+    def activation_shaping_hook(module, input, output) :
+        # Binarization of M (if it is not already binarized)
+        bin_values = (M == 0) + (M == 1)
+        if not torch.all(bin_values):
+            M[M <= 0] = 0
+            M[M > 0] = 1
+
+        # compute top K elements of A
+        A = output #TODO maybe change it back to A = copy(output)
+        _, indices = torch.topk(A.view(-1), K)
+        # Create a mask with zeros everywhere except the top k indices
+        mask = torch.zeros_like(A.view(-1))
+        mask[indices] = 1
+
+        return M * mask.view(A.size()) * A
+    return activation_shaping_hook
+
+
+
 class ASHResNet18(nn.Module):
     def __init__(self):
         super(ASHResNet18, self).__init__()
         self.resnet = resnet18(weights=ResNet18_Weights)
         self.resnet.fc = nn.Linear(self.resnet.fc.in_features, 7)
         self.hooks = dict()
-   
+
     def put_asm_after_layer(self, layer, asm_hook) :
         model_layer = None
         for name, module in self.resnet.named_modules() :
@@ -47,7 +75,7 @@ class ASHResNet18(nn.Module):
                 break
         if model_layer is None :
             raise BaseException(f"Error : The layer {layer} couldn't be found in the model")
-        
+
         hook = model_layer.register_forward_hook(asm_hook)
         self.hooks[layer] = hook
 
@@ -57,7 +85,7 @@ class ASHResNet18(nn.Module):
             self.hooks[layer] = None
         else :
             raise BaseException("Error : no hook attached to this layer")
-        
+
     def forward(self, x):
        return self.resnet(x)
 

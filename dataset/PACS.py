@@ -29,7 +29,7 @@ def load_data():
     test_transform = get_transform(size=224, mean=mean, std=std, preprocess=False)
 
     # Load examples & create Dataset
-    if CONFIG.experiment in ['baseline', 'random']:
+    if CONFIG.experiment in ['baseline', 'random', 'random_no_binarization', 'random_top_k']:
         source_examples, target_examples = [], []
 
         # Load source
@@ -51,7 +51,7 @@ def load_data():
         train_dataset = BaseDataset(source_examples, transform=train_transform)
         test_dataset = BaseDataset(target_examples, transform=test_transform)
 
-    elif CONFIG.experiment in ['DA'] :
+    elif CONFIG.experiment in ['DA', 'DA_no_binarization', 'DA_top_k'] :
         # TODO: Add here how to create the Dataset object for the other experiments
         source_examples, target_examples = [], []
 
