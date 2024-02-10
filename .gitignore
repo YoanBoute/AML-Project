@@ -2,4 +2,5 @@ __pycache__/
 env/
 record/
 kfold/
-tests.ipynb
+tests.ipynb/
+cuda-repo-ubuntu2204-12-3-local_12.3.2-545.23.08-1_amd64.deb
