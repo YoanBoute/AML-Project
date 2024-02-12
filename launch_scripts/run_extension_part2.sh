@@ -1,5 +1,5 @@
 # set K for all the experiments
-K=5
+K=20
 
 # Random experiment, which adds an ASM after each layer of the network, and tests the performance on target domains with random maps containing between 20% and 100% of 1
 source ./launch_scripts/random_top_k.sh cartoon 1.0 $K

@@ -1,6 +1,23 @@
-for K in 10 20 30 40 50 #max 50
-do
-    echo "@@@@@" $K
-    source ./launch_scripts/random_top_k.sh photo 1.0 $K
-    rm ./record/random_top_k/photo/last.pth #impossible to remove
-done
+source ./launch_scripts/random_no_binarization.sh photo 0.6
+rm ./record/random_no_binarization/photo/last.pth 
+
+source ./launch_scripts/random_no_binarization.sh photo 0.8
+rm ./record/random_no_binarization/photo/last.pth 
+
+source ./launch_scripts/random_no_binarization.sh cartoon 0.2
+rm ./record/random_no_binarization/cartoon/last.pth 
+
+source ./launch_scripts/random_no_binarization.sh cartoon 0.6
+rm ./record/random_no_binarization/cartoon/last.pth 
+
+source ./launch_scripts/random_no_binarization.sh cartoon 0.8
+rm ./record/random_no_binarization/cartoon/last.pth 
+
+source ./launch_scripts/random_no_binarization.sh sketch 0.2
+rm ./record/random_no_binarization/sketch/last.pth 
+
+source ./launch_scripts/random_no_binarization.sh sketch 0.6
+rm ./record/random_no_binarization/sketch/last.pth 
+
+source ./launch_scripts/random_no_binarization.sh sketch 0.8
+rm ./record/random_no_binarization/sketch/last.pth 
