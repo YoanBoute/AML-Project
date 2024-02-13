@@ -1,0 +1,1200 @@
+[TEST @ Epoch=0]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=1]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=2]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=3]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=4]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=5]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=6]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=7]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=8]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=9]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=10]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=11]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=12]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=13]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=14]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=15]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=16]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=17]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=18]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=19]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=20]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=21]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=22]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=23]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=24]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=25]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=26]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=27]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=28]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=29]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=0]
+Accuracy: 16.34 - Loss: 0.030714627266337034
+[TEST @ Epoch=1]
+Accuracy: 16.64 - Loss: nan
+[TEST @ Epoch=2]
+Accuracy: 16.51 - Loss: nan
+[TEST @ Epoch=3]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=4]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=5]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=6]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=7]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=8]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=9]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=10]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=11]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=12]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=13]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=14]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=15]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=16]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=17]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=18]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=19]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=20]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=21]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=22]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=23]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=24]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=25]
+Accuracy: 16.47 - Loss: nan
+[TEST @ Epoch=26]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=27]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=28]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=29]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=0]
+Accuracy: 16.17 - Loss: 0.030716716531193705
+[TEST @ Epoch=1]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=2]
+Accuracy: 15.78 - Loss: nan
+[TEST @ Epoch=3]
+Accuracy: 16.21 - Loss: nan
+[TEST @ Epoch=4]
+Accuracy: 15.78 - Loss: nan
+[TEST @ Epoch=5]
+Accuracy: 15.78 - Loss: nan
+[TEST @ Epoch=6]
+Accuracy: 15.78 - Loss: nan
+[TEST @ Epoch=7]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=8]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=9]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=10]
+Accuracy: 16.21 - Loss: nan
+[TEST @ Epoch=11]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=12]
+Accuracy: 15.96 - Loss: nan
+[TEST @ Epoch=13]
+Accuracy: 15.78 - Loss: nan
+[TEST @ Epoch=14]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=15]
+Accuracy: 16.17 - Loss: nan
+[TEST @ Epoch=16]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=17]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=18]
+Accuracy: 16.21 - Loss: nan
+[TEST @ Epoch=19]
+Accuracy: 16.17 - Loss: nan
+[TEST @ Epoch=20]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=21]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=22]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=23]
+Accuracy: 16.21 - Loss: nan
+[TEST @ Epoch=24]
+Accuracy: 16.17 - Loss: nan
+[TEST @ Epoch=25]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=26]
+Accuracy: 15.96 - Loss: nan
+[TEST @ Epoch=27]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=28]
+Accuracy: 15.78 - Loss: nan
+[TEST @ Epoch=29]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=0]
+Accuracy: 16.17 - Loss: 0.03071671388661902
+[TEST @ Epoch=1]
+Accuracy: 16.17 - Loss: 0.03071670473232204
+[TEST @ Epoch=2]
+Accuracy: 16.17 - Loss: 0.030716696239168735
+[TEST @ Epoch=3]
+Accuracy: 16.17 - Loss: 0.030716679914005788
+[TEST @ Epoch=4]
+Accuracy: 16.17 - Loss: 0.030716661605411828
+[TEST @ Epoch=5]
+Accuracy: 16.17 - Loss: 0.03071665245111485
+[TEST @ Epoch=6]
+Accuracy: 16.17 - Loss: 0.030716648484252825
+[TEST @ Epoch=7]
+Accuracy: 16.17 - Loss: 0.030716634752807358
+[TEST @ Epoch=8]
+Accuracy: 16.17 - Loss: 0.03071662168250556
+[TEST @ Epoch=9]
+Accuracy: 16.17 - Loss: 0.03071660728991642
+[TEST @ Epoch=10]
+Accuracy: 16.17 - Loss: 0.03071659813561944
+[TEST @ Epoch=11]
+Accuracy: 16.17 - Loss: 0.030716590913896266
+[TEST @ Epoch=12]
+Accuracy: 16.17 - Loss: 0.030716579115024605
+[TEST @ Epoch=13]
+Accuracy: 16.17 - Loss: 0.03071656345100533
+[TEST @ Epoch=14]
+Accuracy: 16.17 - Loss: 0.030716550329846326
+[TEST @ Epoch=15]
+Accuracy: 16.17 - Loss: 0.030716537971545405
+[TEST @ Epoch=16]
+Accuracy: 16.17 - Loss: 0.030716531360108698
+[TEST @ Epoch=17]
+Accuracy: 16.17 - Loss: 0.03071651884923616
+[TEST @ Epoch=18]
+Accuracy: 16.17 - Loss: 0.03071650379550335
+[TEST @ Epoch=19]
+Accuracy: 16.17 - Loss: 0.03071649342063344
+[TEST @ Epoch=20]
+Accuracy: 16.17 - Loss: 0.030716486097195857
+[TEST @ Epoch=21]
+Accuracy: 16.17 - Loss: 0.030716478214329015
+[TEST @ Epoch=22]
+Accuracy: 16.17 - Loss: 0.03071646575431368
+[TEST @ Epoch=23]
+Accuracy: 16.17 - Loss: 0.030716447394862515
+[TEST @ Epoch=24]
+Accuracy: 16.17 - Loss: 0.030716446733718848
+[TEST @ Epoch=25]
+Accuracy: 16.17 - Loss: 0.030716444801145038
+[TEST @ Epoch=26]
+Accuracy: 16.17 - Loss: 0.030716444750287834
+[TEST @ Epoch=27]
+Accuracy: 16.17 - Loss: 0.030716444089144163
+[TEST @ Epoch=28]
+Accuracy: 16.17 - Loss: 0.030716443428000492
+[TEST @ Epoch=29]
+Accuracy: 16.17 - Loss: 0.03071644210571315
+[TEST @ Epoch=0]
+Accuracy: 16.17 - Loss: 0.03071671388661902
+[TEST @ Epoch=1]
+Accuracy: 16.17 - Loss: 0.03071670473232204
+[TEST @ Epoch=2]
+Accuracy: 16.17 - Loss: 0.030716696239168735
+[TEST @ Epoch=3]
+Accuracy: 16.17 - Loss: 0.030716679914005788
+[TEST @ Epoch=4]
+Accuracy: 16.17 - Loss: 0.030716661605411828
+[TEST @ Epoch=5]
+Accuracy: 16.17 - Loss: 0.03071665245111485
+[TEST @ Epoch=6]
+Accuracy: 16.17 - Loss: 0.030716648484252825
+[TEST @ Epoch=7]
+Accuracy: 16.17 - Loss: 0.030716634752807358
+[TEST @ Epoch=8]
+Accuracy: 16.17 - Loss: 0.03071662168250556
+[TEST @ Epoch=9]
+Accuracy: 16.17 - Loss: 0.03071660728991642
+[TEST @ Epoch=10]
+Accuracy: 16.17 - Loss: 0.03071659813561944
+[TEST @ Epoch=11]
+Accuracy: 16.17 - Loss: 0.030716590913896266
+[TEST @ Epoch=12]
+Accuracy: 16.17 - Loss: 0.030716579115024605
+[TEST @ Epoch=13]
+Accuracy: 16.17 - Loss: 0.03071656345100533
+[TEST @ Epoch=14]
+Accuracy: 16.17 - Loss: 0.030716550329846326
+[TEST @ Epoch=15]
+Accuracy: 16.17 - Loss: 0.030716537971545405
+[TEST @ Epoch=16]
+Accuracy: 16.17 - Loss: 0.030716531360108698
+[TEST @ Epoch=17]
+Accuracy: 16.17 - Loss: 0.03071651884923616
+[TEST @ Epoch=18]
+Accuracy: 16.17 - Loss: 0.03071650379550335
+[TEST @ Epoch=19]
+Accuracy: 16.17 - Loss: 0.03071649342063344
+[TEST @ Epoch=20]
+Accuracy: 16.17 - Loss: 0.030716486097195857
+[TEST @ Epoch=21]
+Accuracy: 16.17 - Loss: 0.030716478214329015
+[TEST @ Epoch=22]
+Accuracy: 16.17 - Loss: 0.03071646575431368
+[TEST @ Epoch=23]
+Accuracy: 16.17 - Loss: 0.030716447394862515
+[TEST @ Epoch=24]
+Accuracy: 16.17 - Loss: 0.030716446733718848
+[TEST @ Epoch=25]
+Accuracy: 16.17 - Loss: 0.030716444801145038
+[TEST @ Epoch=26]
+Accuracy: 16.17 - Loss: 0.030716444750287834
+[TEST @ Epoch=27]
+Accuracy: 16.17 - Loss: 0.030716444089144163
+[TEST @ Epoch=28]
+Accuracy: 16.17 - Loss: 0.030716443428000492
+[TEST @ Epoch=29]
+Accuracy: 16.17 - Loss: 0.03071644210571315
+[TEST @ Epoch=0]
+Accuracy: 16.21 - Loss: 0.03418157796404061
+[TEST @ Epoch=1]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=2]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=3]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=4]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=5]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=6]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=7]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=8]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=9]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=10]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=11]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=12]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=13]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=14]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=15]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=16]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=17]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=18]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=19]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=20]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=21]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=22]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=23]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=24]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=25]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=26]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=27]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=28]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=29]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=0]
+Accuracy: 16.34 - Loss: 0.030714627266337034
+[TEST @ Epoch=1]
+Accuracy: 16.64 - Loss: nan
+[TEST @ Epoch=2]
+Accuracy: 16.51 - Loss: nan
+[TEST @ Epoch=3]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=4]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=5]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=6]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=7]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=8]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=9]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=10]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=11]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=12]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=13]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=14]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=15]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=16]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=17]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=18]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=19]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=20]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=21]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=22]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=23]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=24]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=25]
+Accuracy: 16.47 - Loss: nan
+[TEST @ Epoch=26]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=27]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=28]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=29]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=0]
+Accuracy: 16.17 - Loss: 0.030716716531193705
+[TEST @ Epoch=1]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=2]
+Accuracy: 15.78 - Loss: nan
+[TEST @ Epoch=3]
+Accuracy: 16.21 - Loss: nan
+[TEST @ Epoch=4]
+Accuracy: 15.78 - Loss: nan
+[TEST @ Epoch=5]
+Accuracy: 15.78 - Loss: nan
+[TEST @ Epoch=6]
+Accuracy: 15.78 - Loss: nan
+[TEST @ Epoch=7]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=8]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=9]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=10]
+Accuracy: 16.21 - Loss: nan
+[TEST @ Epoch=11]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=12]
+Accuracy: 15.96 - Loss: nan
+[TEST @ Epoch=13]
+Accuracy: 15.78 - Loss: nan
+[TEST @ Epoch=14]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=15]
+Accuracy: 16.17 - Loss: nan
+[TEST @ Epoch=16]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=17]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=18]
+Accuracy: 16.21 - Loss: nan
+[TEST @ Epoch=19]
+Accuracy: 16.17 - Loss: nan
+[TEST @ Epoch=20]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=21]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=22]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=23]
+Accuracy: 16.21 - Loss: nan
+[TEST @ Epoch=24]
+Accuracy: 16.17 - Loss: nan
+[TEST @ Epoch=25]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=26]
+Accuracy: 15.96 - Loss: nan
+[TEST @ Epoch=27]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=28]
+Accuracy: 15.78 - Loss: nan
+[TEST @ Epoch=29]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=0]
+Accuracy: 16.17 - Loss: 0.03071671388661902
+[TEST @ Epoch=1]
+Accuracy: 16.17 - Loss: 0.03071670473232204
+[TEST @ Epoch=2]
+Accuracy: 16.17 - Loss: 0.030716696239168735
+[TEST @ Epoch=3]
+Accuracy: 16.17 - Loss: 0.030716679914005788
+[TEST @ Epoch=4]
+Accuracy: 16.17 - Loss: 0.030716661605411828
+[TEST @ Epoch=5]
+Accuracy: 16.17 - Loss: 0.03071665245111485
+[TEST @ Epoch=6]
+Accuracy: 16.17 - Loss: 0.030716648484252825
+[TEST @ Epoch=7]
+Accuracy: 16.17 - Loss: 0.030716634752807358
+[TEST @ Epoch=8]
+Accuracy: 16.17 - Loss: 0.03071662168250556
+[TEST @ Epoch=9]
+Accuracy: 16.17 - Loss: 0.03071660728991642
+[TEST @ Epoch=10]
+Accuracy: 16.17 - Loss: 0.03071659813561944
+[TEST @ Epoch=11]
+Accuracy: 16.17 - Loss: 0.030716590913896266
+[TEST @ Epoch=12]
+Accuracy: 16.17 - Loss: 0.030716579115024605
+[TEST @ Epoch=13]
+Accuracy: 16.17 - Loss: 0.03071656345100533
+[TEST @ Epoch=14]
+Accuracy: 16.17 - Loss: 0.030716550329846326
+[TEST @ Epoch=15]
+Accuracy: 16.17 - Loss: 0.030716537971545405
+[TEST @ Epoch=16]
+Accuracy: 16.17 - Loss: 0.030716531360108698
+[TEST @ Epoch=17]
+Accuracy: 16.17 - Loss: 0.03071651884923616
+[TEST @ Epoch=18]
+Accuracy: 16.17 - Loss: 0.03071650379550335
+[TEST @ Epoch=19]
+Accuracy: 16.17 - Loss: 0.03071649342063344
+[TEST @ Epoch=20]
+Accuracy: 16.17 - Loss: 0.030716486097195857
+[TEST @ Epoch=21]
+Accuracy: 16.17 - Loss: 0.030716478214329015
+[TEST @ Epoch=22]
+Accuracy: 16.17 - Loss: 0.03071646575431368
+[TEST @ Epoch=23]
+Accuracy: 16.17 - Loss: 0.030716447394862515
+[TEST @ Epoch=24]
+Accuracy: 16.17 - Loss: 0.030716446733718848
+[TEST @ Epoch=25]
+Accuracy: 16.17 - Loss: 0.030716444801145038
+[TEST @ Epoch=26]
+Accuracy: 16.17 - Loss: 0.030716444750287834
+[TEST @ Epoch=27]
+Accuracy: 16.17 - Loss: 0.030716444089144163
+[TEST @ Epoch=28]
+Accuracy: 16.17 - Loss: 0.030716443428000492
+[TEST @ Epoch=29]
+Accuracy: 16.17 - Loss: 0.03071644210571315
+[TEST @ Epoch=0]
+Accuracy: 16.17 - Loss: 0.03071671388661902
+[TEST @ Epoch=1]
+Accuracy: 16.17 - Loss: 0.03071670473232204
+[TEST @ Epoch=2]
+Accuracy: 16.17 - Loss: 0.030716696239168735
+[TEST @ Epoch=3]
+Accuracy: 16.17 - Loss: 0.030716679914005788
+[TEST @ Epoch=4]
+Accuracy: 16.17 - Loss: 0.030716661605411828
+[TEST @ Epoch=5]
+Accuracy: 16.17 - Loss: 0.03071665245111485
+[TEST @ Epoch=6]
+Accuracy: 16.17 - Loss: 0.030716648484252825
+[TEST @ Epoch=7]
+Accuracy: 16.17 - Loss: 0.030716634752807358
+[TEST @ Epoch=8]
+Accuracy: 16.17 - Loss: 0.03071662168250556
+[TEST @ Epoch=9]
+Accuracy: 16.17 - Loss: 0.03071660728991642
+[TEST @ Epoch=10]
+Accuracy: 16.17 - Loss: 0.03071659813561944
+[TEST @ Epoch=11]
+Accuracy: 16.17 - Loss: 0.030716590913896266
+[TEST @ Epoch=12]
+Accuracy: 16.17 - Loss: 0.030716579115024605
+[TEST @ Epoch=13]
+Accuracy: 16.17 - Loss: 0.03071656345100533
+[TEST @ Epoch=14]
+Accuracy: 16.17 - Loss: 0.030716550329846326
+[TEST @ Epoch=15]
+Accuracy: 16.17 - Loss: 0.030716537971545405
+[TEST @ Epoch=16]
+Accuracy: 16.17 - Loss: 0.030716531360108698
+[TEST @ Epoch=17]
+Accuracy: 16.17 - Loss: 0.03071651884923616
+[TEST @ Epoch=18]
+Accuracy: 16.17 - Loss: 0.03071650379550335
+[TEST @ Epoch=19]
+Accuracy: 16.17 - Loss: 0.03071649342063344
+[TEST @ Epoch=20]
+Accuracy: 16.17 - Loss: 0.030716486097195857
+[TEST @ Epoch=21]
+Accuracy: 16.17 - Loss: 0.030716478214329015
+[TEST @ Epoch=22]
+Accuracy: 16.17 - Loss: 0.03071646575431368
+[TEST @ Epoch=23]
+Accuracy: 16.17 - Loss: 0.030716447394862515
+[TEST @ Epoch=24]
+Accuracy: 16.17 - Loss: 0.030716446733718848
+[TEST @ Epoch=25]
+Accuracy: 16.17 - Loss: 0.030716444801145038
+[TEST @ Epoch=26]
+Accuracy: 16.17 - Loss: 0.030716444750287834
+[TEST @ Epoch=27]
+Accuracy: 16.17 - Loss: 0.030716444089144163
+[TEST @ Epoch=28]
+Accuracy: 16.17 - Loss: 0.030716443428000492
+[TEST @ Epoch=29]
+Accuracy: 16.17 - Loss: 0.03071644210571315
+[TEST @ Epoch=0]
+Accuracy: 15.91 - Loss: nan
+[TEST @ Epoch=1]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=2]
+Accuracy: 16.47 - Loss: nan
+[TEST @ Epoch=3]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=4]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=5]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=6]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=7]
+Accuracy: 16.47 - Loss: nan
+[TEST @ Epoch=8]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=9]
+Accuracy: 16.47 - Loss: nan
+[TEST @ Epoch=10]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=11]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=12]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=13]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=14]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=15]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=16]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=17]
+Accuracy: 16.47 - Loss: nan
+[TEST @ Epoch=18]
+Accuracy: 16.47 - Loss: nan
+[TEST @ Epoch=19]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=20]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=21]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=22]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=23]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=24]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=25]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=26]
+Accuracy: 16.47 - Loss: nan
+[TEST @ Epoch=27]
+Accuracy: 16.47 - Loss: nan
+[TEST @ Epoch=28]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=29]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=0]
+Accuracy: 15.96 - Loss: 0.030694555910780973
+[TEST @ Epoch=1]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=2]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=3]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=4]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=5]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=6]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=7]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=8]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=9]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=10]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=11]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=12]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=13]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=14]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=15]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=16]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=17]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=18]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=19]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=20]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=21]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=22]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=23]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=24]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=25]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=26]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=27]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=28]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=29]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=0]
+Accuracy: 16.00 - Loss: 0.03071726416158188
+[TEST @ Epoch=1]
+Accuracy: 15.49 - Loss: nan
+[TEST @ Epoch=2]
+Accuracy: 15.78 - Loss: nan
+[TEST @ Epoch=3]
+Accuracy: 15.74 - Loss: nan
+[TEST @ Epoch=4]
+Accuracy: 16.17 - Loss: nan
+[TEST @ Epoch=5]
+Accuracy: 15.96 - Loss: nan
+[TEST @ Epoch=6]
+Accuracy: 15.74 - Loss: nan
+[TEST @ Epoch=7]
+Accuracy: 16.30 - Loss: nan
+[TEST @ Epoch=8]
+Accuracy: 15.49 - Loss: nan
+[TEST @ Epoch=9]
+Accuracy: 16.00 - Loss: nan
+[TEST @ Epoch=10]
+Accuracy: 16.30 - Loss: nan
+[TEST @ Epoch=11]
+Accuracy: 16.04 - Loss: nan
+[TEST @ Epoch=12]
+Accuracy: 16.04 - Loss: nan
+[TEST @ Epoch=13]
+Accuracy: 16.64 - Loss: nan
+[TEST @ Epoch=14]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=15]
+Accuracy: 16.34 - Loss: nan
+[TEST @ Epoch=16]
+Accuracy: 15.96 - Loss: nan
+[TEST @ Epoch=17]
+Accuracy: 15.74 - Loss: nan
+[TEST @ Epoch=18]
+Accuracy: 16.08 - Loss: nan
+[TEST @ Epoch=19]
+Accuracy: 15.96 - Loss: nan
+[TEST @ Epoch=20]
+Accuracy: 15.91 - Loss: nan
+[TEST @ Epoch=21]
+Accuracy: 15.74 - Loss: nan
+[TEST @ Epoch=22]
+Accuracy: 17.11 - Loss: nan
+[TEST @ Epoch=23]
+Accuracy: 17.49 - Loss: nan
+[TEST @ Epoch=24]
+Accuracy: 17.36 - Loss: nan
+[TEST @ Epoch=25]
+Accuracy: 16.55 - Loss: nan
+[TEST @ Epoch=26]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=27]
+Accuracy: 15.96 - Loss: nan
+[TEST @ Epoch=28]
+Accuracy: 16.47 - Loss: nan
+[TEST @ Epoch=29]
+Accuracy: 16.47 - Loss: nan
+[TEST @ Epoch=0]
+Accuracy: 15.96 - Loss: 0.030717262737580128
+[TEST @ Epoch=1]
+Accuracy: 15.96 - Loss: 0.030717227544393964
+[TEST @ Epoch=2]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=3]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=4]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=5]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=6]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=7]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=8]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=9]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=10]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=11]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=12]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=13]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=14]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=15]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=16]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=17]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=18]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=19]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=20]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=21]
+Accuracy: 16.25 - Loss: nan
+[TEST @ Epoch=22]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=23]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=24]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=25]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=26]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=27]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=28]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=29]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=0]
+Accuracy: 15.96 - Loss: 0.030717262737580128
+[TEST @ Epoch=1]
+Accuracy: 15.96 - Loss: 0.030717227544393964
+[TEST @ Epoch=2]
+Accuracy: 15.96 - Loss: 0.03071719107977766
+[TEST @ Epoch=3]
+Accuracy: 15.96 - Loss: 0.030717136001424172
+[TEST @ Epoch=4]
+Accuracy: 15.96 - Loss: 0.030717070497343565
+[TEST @ Epoch=5]
+Accuracy: 15.96 - Loss: 0.030717022081283987
+[TEST @ Epoch=6]
+Accuracy: 15.96 - Loss: 0.030717000568686086
+[TEST @ Epoch=7]
+Accuracy: 15.96 - Loss: 0.030716948846908152
+[TEST @ Epoch=8]
+Accuracy: 15.96 - Loss: 0.03071689915941844
+[TEST @ Epoch=9]
+Accuracy: 15.96 - Loss: 0.030716862186230084
+[TEST @ Epoch=10]
+Accuracy: 15.96 - Loss: 0.0307168249587557
+[TEST @ Epoch=11]
+Accuracy: 15.96 - Loss: 0.030716784323848556
+[TEST @ Epoch=12]
+Accuracy: 15.96 - Loss: 0.03071674623180168
+[TEST @ Epoch=13]
+Accuracy: 15.96 - Loss: 0.03071669903631503
+[TEST @ Epoch=14]
+Accuracy: 15.96 - Loss: 0.030716665521416647
+[TEST @ Epoch=15]
+Accuracy: 15.96 - Loss: 0.030716634549378535
+[TEST @ Epoch=16]
+Accuracy: 15.96 - Loss: 0.030716605103056585
+[TEST @ Epoch=17]
+Accuracy: 15.96 - Loss: 0.030716561721860346
+[TEST @ Epoch=18]
+Accuracy: 15.96 - Loss: 0.030716513610943998
+[TEST @ Epoch=19]
+Accuracy: 15.96 - Loss: 0.030716477400613725
+[TEST @ Epoch=20]
+Accuracy: 15.96 - Loss: 0.03071645573544421
+[TEST @ Epoch=21]
+Accuracy: 15.96 - Loss: 0.030716422881689496
+[TEST @ Epoch=22]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=23]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=24]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=25]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=26]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=27]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=28]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=29]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=0]
+Accuracy: 15.87 - Loss: nan
+[TEST @ Epoch=1]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=2]
+Accuracy: 16.13 - Loss: nan
+[TEST @ Epoch=3]
+Accuracy: 15.23 - Loss: nan
+[TEST @ Epoch=4]
+Accuracy: 15.53 - Loss: nan
+[TEST @ Epoch=5]
+Accuracy: 16.13 - Loss: nan
+[TEST @ Epoch=6]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=7]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=8]
+Accuracy: 15.53 - Loss: nan
+[TEST @ Epoch=9]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=10]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=11]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=12]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=13]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=14]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=15]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=16]
+Accuracy: 16.08 - Loss: nan
+[TEST @ Epoch=17]
+Accuracy: 16.08 - Loss: nan
+[TEST @ Epoch=18]
+Accuracy: 16.08 - Loss: nan
+[TEST @ Epoch=19]
+Accuracy: 16.08 - Loss: nan
+[TEST @ Epoch=20]
+Accuracy: 16.68 - Loss: nan
+[TEST @ Epoch=21]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=22]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=23]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=24]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=25]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=26]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=27]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=28]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=29]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=0]
+Accuracy: 15.78 - Loss: 0.03107955939940625
+[TEST @ Epoch=1]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=2]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=3]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=4]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=5]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=6]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=7]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=8]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=9]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=10]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=11]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=12]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=13]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=14]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=15]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=16]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=17]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=18]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=19]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=20]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=21]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=22]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=23]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=24]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=25]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=26]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=27]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=28]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=29]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=0]
+Accuracy: 15.53 - Loss: 0.03071832951832143
+[TEST @ Epoch=1]
+Accuracy: 16.17 - Loss: nan
+[TEST @ Epoch=2]
+Accuracy: 15.40 - Loss: nan
+[TEST @ Epoch=3]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=4]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=5]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=6]
+Accuracy: 15.66 - Loss: nan
+[TEST @ Epoch=7]
+Accuracy: 15.61 - Loss: nan
+[TEST @ Epoch=8]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=9]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=10]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=11]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=12]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=13]
+Accuracy: 16.47 - Loss: nan
+[TEST @ Epoch=14]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=15]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=16]
+Accuracy: 16.08 - Loss: nan
+[TEST @ Epoch=17]
+Accuracy: 16.08 - Loss: nan
+[TEST @ Epoch=18]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=19]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=20]
+Accuracy: 16.64 - Loss: nan
+[TEST @ Epoch=21]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=22]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=23]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=24]
+Accuracy: 16.68 - Loss: nan
+[TEST @ Epoch=25]
+Accuracy: 16.55 - Loss: nan
+[TEST @ Epoch=26]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=27]
+Accuracy: 16.42 - Loss: nan
+[TEST @ Epoch=28]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=29]
+Accuracy: 16.38 - Loss: nan
+[TEST @ Epoch=0]
+Accuracy: 15.53 - Loss: 0.030718340045762956
+[TEST @ Epoch=1]
+Accuracy: 15.53 - Loss: 0.03071818732157502
+[TEST @ Epoch=2]
+Accuracy: 15.23 - Loss: nan
+[TEST @ Epoch=3]
+Accuracy: 15.83 - Loss: nan
+[TEST @ Epoch=4]
+Accuracy: 15.53 - Loss: nan
+[TEST @ Epoch=5]
+Accuracy: 15.53 - Loss: nan
+[TEST @ Epoch=6]
+Accuracy: 15.53 - Loss: nan
+[TEST @ Epoch=7]
+Accuracy: 15.53 - Loss: nan
+[TEST @ Epoch=8]
+Accuracy: 15.53 - Loss: nan
+[TEST @ Epoch=9]
+Accuracy: 15.53 - Loss: nan
+[TEST @ Epoch=10]
+Accuracy: 15.53 - Loss: nan
+[TEST @ Epoch=11]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=12]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=13]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=14]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=15]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=16]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=17]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=18]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=19]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=20]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=21]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=22]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=23]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=24]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=25]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=26]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=27]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=28]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=29]
+Accuracy: 16.60 - Loss: nan
+[TEST @ Epoch=0]
+Accuracy: 15.53 - Loss: 0.030718340045762956
+[TEST @ Epoch=1]
+Accuracy: 15.53 - Loss: 0.03071818732157502
+[TEST @ Epoch=2]
+Accuracy: 15.53 - Loss: 0.03071799752248432
+[TEST @ Epoch=3]
+Accuracy: 15.53 - Loss: 0.030717776395355067
+[TEST @ Epoch=4]
+Accuracy: 15.53 - Loss: 0.030717612635153553
+[TEST @ Epoch=5]
+Accuracy: 15.53 - Loss: 0.03071749566358104
+[TEST @ Epoch=6]
+Accuracy: 15.53 - Loss: 0.03071736607942158
+[TEST @ Epoch=7]
+Accuracy: 15.53 - Loss: 0.03071716000602514
+[TEST @ Epoch=8]
+Accuracy: 15.53 - Loss: 0.03071697127493575
+[TEST @ Epoch=9]
+Accuracy: 15.53 - Loss: 0.03071684326734966
+[TEST @ Epoch=10]
+Accuracy: 15.53 - Loss: 0.03071673321235709
+[TEST @ Epoch=11]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=12]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=13]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=14]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=15]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=16]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=17]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=18]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=19]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=20]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=21]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=22]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=23]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=24]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=25]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=26]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=27]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=28]
+Accuracy: 16.60 - Loss: 0.030716166866517312
+[TEST @ Epoch=29]
+Accuracy: 16.60 - Loss: 0.030716166866517312
